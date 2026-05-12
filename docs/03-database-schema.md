@@ -12,4 +12,8 @@ Tabele principale:
 - `sync_log` - jurnal sincronizare;
 - `audit_log` - jurnal audit.
 
-MVP-ul nu foloseste inca baza de date in runtime.
+Runtime-ul backend poate folosi schema atunci cand `DATABASE_URL` este configurat.
+
+In lipsa configuratiei DB, backend-ul pastreaza fallback-ul demo in-memory pentru a nu bloca MVP-ul.
+
+Seed-ul controlat se afla in `database/seed-demo-data.sql` si acopera dashboard, miscari demo si raportul de stoc.

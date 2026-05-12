@@ -4,6 +4,19 @@
 
 Returneaza statusul aplicatiei.
 
+Raspunsul include si modul de persistenta:
+
+```json
+{
+  "status": "ok",
+  "app": "TraceAI Control - Gestionare Paleti",
+  "environment": "mvp-demo",
+  "production_integrations_enabled": false,
+  "database_enabled": false,
+  "database_mode": "demo"
+}
+```
+
 ## GET /api/dashboard
 
 ```json
@@ -16,9 +29,11 @@ Returneaza statusul aplicatiei.
 }
 ```
 
+Cand `DATABASE_URL` este configurat, raspunsul este calculat din PostgreSQL; altfel foloseste date demo.
+
 ## GET /api/pallet-movements
 
-Returneaza lista miscarilor demo.
+Returneaza lista miscarilor demo sau, daca persistenta este activa, miscarile din PostgreSQL.
 
 ## POST /api/pallet-movements
 
@@ -34,13 +49,15 @@ Returneaza lista miscarilor demo.
 }
 ```
 
+In modul PostgreSQL, codurile de palet, locatie si partener trebuie sa existe in master-data.
+
 ## POST /api/pallet-movements/{id}/validate
 
 Valideaza o miscare existenta.
 
 ## GET /api/reports/stock
 
-Returneaza raportul demo de stoc.
+Returneaza raportul demo de stoc sau snapshot-ul din PostgreSQL, in functie de configuratia backend-ului.
 
 ## Endpointuri viitoare neimplementate
 

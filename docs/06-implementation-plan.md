@@ -10,10 +10,11 @@
 
 ## Etapa 2 - Persistenta
 
-- conectare PostgreSQL;
-- migratii;
-- seed controlat;
-- repository/service layer.
+- configurare PostgreSQL prin `DATABASE_URL`;
+- repository layer cu fallback demo;
+- mapare backend la tabelele principale;
+- seed controlat pentru dashboard, miscari si raport stoc;
+- pending: migratii automate si teste de integrare DB.
 
 ## Etapa 3 - Integrare ERP/WMS
 

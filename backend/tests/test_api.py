@@ -10,6 +10,8 @@ def test_health():
     assert response.status_code == 200
     assert response.json()["status"] == "ok"
     assert response.json()["production_integrations_enabled"] is False
+    assert response.json()["database_enabled"] is False
+    assert response.json()["database_mode"] == "demo"
 
 
 def test_dashboard():

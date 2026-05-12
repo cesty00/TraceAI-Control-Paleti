@@ -11,11 +11,11 @@ Acest backlog este lista de lucru recomandata pentru agentul de proiect.
 
 ## EPIC 2 - Persistenta PostgreSQL
 
-- Adauga configuratie DB prin environment variables.
-- Adauga layer repository.
-- Adauga migratii sau scripturi controlate.
-- Inlocuieste demo data in-memory cu DB optional.
-- Pastreaza fallback demo daca DB nu este configurata.
+- [x] Adauga configuratie DB prin environment variables.
+- [x] Adauga layer repository.
+- [ ] Adauga migratii sau scripturi controlate.
+- [x] Inlocuieste demo data in-memory cu DB optional.
+- [x] Pastreaza fallback demo daca DB nu este configurata.
 
 ## EPIC 3 - Backend API extins
 

@@ -24,8 +24,38 @@ WHERE p.pallet_code = 'PAL-EUR-1200x800'
   AND l.location_code = 'WMS_PALETI_BUNI'
   AND s.partner_code = 'SUP-LEMN-NORD';
 
+INSERT INTO pallet_movements (
+  movement_no, movement_type, pallet_item_id, quantity, source_location_id, target_location_id,
+  production_order, reference_document, reference_system, status, created_by
+)
+SELECT
+  'PAL-MOV-0002', 'PRODUCTION_ALLOCATION', p.id, 28, source_loc.id, target_loc.id,
+  'PRD-4581', 'WME-4581', 'WME', 'VALIDATED', 'demo'
+FROM pallet_items p, locations source_loc, locations target_loc
+WHERE p.pallet_code = 'PAL-EUR-1200x800'
+  AND source_loc.location_code = 'WMS_PALETI_BUNI'
+  AND target_loc.location_code = 'WME_LINIE_AMBALARE';
+
 INSERT INTO pallet_stock_snapshot (pallet_item_id, location_id, quantity, source_system)
 SELECT p.id, l.id, 842, 'WMS'
 FROM pallet_items p, locations l
 WHERE p.pallet_code = 'PAL-EUR-1200x800'
   AND l.location_code = 'WMS_PALETI_BUNI';
+
+INSERT INTO pallet_stock_snapshot (pallet_item_id, location_id, quantity, source_system)
+SELECT p.id, l.id, 136, 'WME'
+FROM pallet_items p, locations l
+WHERE p.pallet_code = 'PAL-EUR-1200x800'
+  AND l.location_code = 'WME_LINIE_AMBALARE';
+
+INSERT INTO pallet_stock_snapshot (pallet_item_id, location_id, quantity, source_system)
+SELECT p.id, l.id, 428, 'ERP'
+FROM pallet_items p, locations l
+WHERE p.pallet_code = 'PAL-NON-STD'
+  AND l.location_code = 'ERP_SOLD_CLIENTI';
+
+INSERT INTO pallet_stock_snapshot (pallet_item_id, location_id, quantity, source_system)
+SELECT p.id, l.id, 39, 'WMS'
+FROM pallet_items p, locations l
+WHERE p.pallet_code = 'PAL-DETERIORAT'
+  AND l.location_code = 'WMS_PALETI_DETERIORATI';
