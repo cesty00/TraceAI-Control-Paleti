@@ -1,5 +1,6 @@
 from enum import Enum
 from typing import Optional
+
 from pydantic import BaseModel, Field
 
 
@@ -54,8 +55,8 @@ class PalletMovement(PalletMovementCreate):
 
 class ValidationResult(BaseModel):
     valid: bool
-    warnings: list[str] = []
-    errors: list[str] = []
+    warnings: list[str] = Field(default_factory=list)
+    errors: list[str] = Field(default_factory=list)
 
 
 class StockReportItem(BaseModel):
