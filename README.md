@@ -4,13 +4,13 @@ MVP skeleton pentru gestionarea paletilor reutilizabili printr-un strat UI si AP
 
 ## Scop
 
-Aplicatia urmareste miscari de paleti lemn intre furnizori, depozit, productie, clienti si retururi. Acest repository contine doar un MVP skeleton, date demo si documentatie initiala.
+Aplicatia urmareste miscari de paleti lemn intre furnizori, depozit, productie, clienti si retururi. Repository-ul contine un MVP skeleton, date demo, documentatie initiala si un persistence layer PostgreSQL optional pentru etapa pilot.
 
 > MVP skeleton only. No production integrations implemented.
 
 ## Structura
 
-- `backend/` - FastAPI skeleton cu date in-memory.
+- `backend/` - FastAPI skeleton cu fallback demo si persistenta PostgreSQL optionala.
 - `frontend/` - React/Vite skeleton cu UI demo.
 - `database/` - schema PostgreSQL si seed demo.
 - `docs/` - documentatie functionala si tehnica MVP.
@@ -26,7 +26,15 @@ pip install -r requirements.txt
 uvicorn app.main:app --reload
 ```
 
-Endpointuri demo:
+Pentru PostgreSQL optional:
+
+```bash
+export DATABASE_URL="postgresql+psycopg://traceai:traceai@localhost:5432/traceai_paleti"
+```
+
+Cand `DATABASE_URL` lipseste, backend-ul ruleaza in continuare in `demo` mode cu date in-memory.
+
+Endpointuri demo/API:
 
 - `GET /health`
 - `GET /api/dashboard`
@@ -55,6 +63,6 @@ npm run build
 
 - integrare reala ERP/WMS/WME;
 - autentificare;
-- conexiune baza de date;
+- migratii automate si orchestration DB pentru medii multiple;
 - productie/release/daily-use;
 - sincronizare reala de documente sau stocuri.
