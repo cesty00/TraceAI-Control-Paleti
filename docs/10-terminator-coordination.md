@@ -70,6 +70,8 @@ Daca un workflow esueaza, Terminator trebuie sa:
 4. pastreze PR-ul draft pana cand CI trece;
 5. raporteze statusul cu verdict.
 
+Nota de lucru: aceasta linie exista ca CI revalidation trigger pentru un update documentar minim pe PR-uri de guvernanta.
+
 ## Ordine de prioritate
 
 1. CI failure/blocker.
