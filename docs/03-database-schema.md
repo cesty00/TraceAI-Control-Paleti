@@ -13,3 +13,5 @@ Tabele principale:
 - `audit_log` - jurnal audit.
 
 MVP-ul nu foloseste inca baza de date in runtime.
+
+Nota DB persistence: branch-ul de persistenta pastreaza modul demo ca fallback cand `database_url` nu este configurat. CI revalidation trigger.
