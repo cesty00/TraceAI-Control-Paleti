@@ -28,4 +28,6 @@ def health() -> dict[str, str | bool]:
         "app": settings.app_name,
         "environment": settings.environment,
         "production_integrations_enabled": settings.production_integrations_enabled,
+        "database_enabled": settings.database_enabled,
+        "database_mode": "postgres" if settings.database_enabled else "demo",
     }
