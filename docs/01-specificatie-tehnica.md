@@ -3,7 +3,7 @@
 ## Arhitectura
 
 ```text
-Frontend React/Vite -> Backend FastAPI -> date demo in-memory
+Frontend React/Vite -> Backend FastAPI -> repository layer -> PostgreSQL optional / demo fallback
 ```
 
 ## Module
@@ -12,6 +12,7 @@ Frontend React/Vite -> Backend FastAPI -> date demo in-memory
 - Miscari paleti
 - Rapoarte stoc
 - Validari minime
+- Repository layer pentru persistenta PostgreSQL
 - Documentatie integrare ERP/WMS/WME
 
 ## Tipuri miscari
@@ -43,11 +44,12 @@ Frontend React/Vite -> Backend FastAPI -> date demo in-memory
 - cantitatea trebuie sa fie mai mare decat zero;
 - codul paletului este obligatoriu;
 - tipul miscarii este obligatoriu;
-- sursa/destinatia sunt obligatorii in functie de tipul miscarii.
+- sursa/destinatia sunt obligatorii in functie de tipul miscarii;
+- referintele master-data sunt validate in PostgreSQL atunci cand `DATABASE_URL` este configurat.
 
 ## Limitari
 
 - fara autentificare;
-- fara baza de date activa;
+- fara migratii automate;
 - fara conectori reali ERP/WMS/WME;
 - fara productie/release/daily-use.
