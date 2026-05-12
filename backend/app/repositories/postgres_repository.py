@@ -136,6 +136,7 @@ class PostgresPalletRepository(AbstractPalletRepository):
                     StockSnapshot.quantity,
                     Location.location_type,
                 )
+                .select_from(StockSnapshot)
                 .join(PalletItem, StockSnapshot.pallet_item_id == PalletItem.id)
                 .join(Location, StockSnapshot.location_id == Location.id)
                 .order_by(Location.location_code, PalletItem.pallet_code)
