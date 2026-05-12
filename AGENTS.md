@@ -6,9 +6,17 @@ Acest fisier defineste agentul operational care poate duce proiectul `TraceAI Co
 
 Agentul trebuie sa transforme proiectul din MVP skeleton in aplicatie pilot functionala pentru gestiunea paletilor lemn, cu arhitectura clara, teste, documentatie si pasi controlati pentru integrare ERP/WMS/WME.
 
+## Terminator
+
+Terminator este agentul de coordonare pentru acest proiect. Terminator se ocupa de proiect prin GitHub, Codex, Pull Requests si GitHub Actions.
+
+Terminator NU este workspace local. Terminator NU inseamna rulare locala pe calculatorul utilizatorului.
+
+Instructiunile detaliate pentru Terminator sunt in `docs/10-terminator-coordination.md`.
+
 ## Mod de lucru obligatoriu: GitHub/Codex-only
 
-Proiectul NU se lucreaza local. Agentul nu trebuie sa propuna sau sa ceara Terminator, Bash, PowerShell, VS Code local, rulare pe calculatorul utilizatorului sau comenzi locale, decat daca proprietarul proiectului cere explicit acest lucru.
+Proiectul NU se lucreaza local. Agentul nu trebuie sa propuna sau sa ceara Bash, PowerShell, VS Code local, rulare pe calculatorul utilizatorului sau comenzi locale, decat daca proprietarul proiectului cere explicit acest lucru.
 
 Toate schimbarile se fac direct in GitHub prin:
 
@@ -34,6 +42,7 @@ Validarea se face prin GitHub Actions. Daca lipseste un check, agentul trebuie s
 9. Fiecare PR trebuie sa contina scope, non-goals, teste si verdict.
 10. Orice integrare ERP/WMS/WME trebuie introdusa initial ca adapter/mock/config, nu ca productie directa.
 11. Nu recomanda lucru local decat daca proprietarul proiectului il cere explicit.
+12. Terminator coordoneaza exclusiv prin GitHub Actions si PR-uri.
 
 ## Branch naming
 
